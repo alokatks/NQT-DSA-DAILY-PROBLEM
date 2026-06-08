@@ -1,0 +1,23 @@
+4. ) Palindrome Number
+
+  apporach is : convert number into string by integer.tostirng method  and than apply two pointer apprach
+
+    code:public class Palindrome_Number {
+    public static boolean ispall(int digit) {
+        String st = Integer.toString(digit);//converting digit into string
+        int i = 0;
+        int j = st.length() - 1;
+        while(i<j){
+            if(st.charAt(i)!=st.charAt(j)){
+                return false;
+            }
+            i++;j--;
+        }
+        return true;
+    }
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int digit=sc.nextInt();
+        System.out.println(ispall(digit));
+    }
+}
