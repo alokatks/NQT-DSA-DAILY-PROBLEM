@@ -1,0 +1,54 @@
+//Delete the first occurrence of a given value from the linked list.----QUESTION 
+//5
+//10 20 30 40 50
+//30    ------------>output -- >10 20 40 50
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+public class Main{
+    public static Node del(Node head,int tar){
+        Node temp=head;
+        while(temp.next!=null){
+            if(temp.next.data==tar){
+                temp.next=temp.next.next;
+                return head;
+            }
+            temp=temp.next;
+        }
+        return head;
+    }
+    public static void print(Node head){
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data + " ");
+            temp=temp.next;
+        }
+    }
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+      //  int tar=sc.nextInt();
+        Node head=null;
+        Node tail=null;
+        for(int i=0;i<n;i++){
+            int x=sc.nextInt();
+            Node newnode=new Node(x);
+            if(head==null){
+                head=tail=newnode;
+            }else{
+                tail.next=newnode;
+                tail=newnode;
+            }
+        }
+         int tar=sc.nextInt();
+        Node deleted=del(head,tar);
+        print(deleted);
+    }
+}
