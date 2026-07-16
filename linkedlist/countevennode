@@ -1,0 +1,47 @@
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+public class Main{
+    //fucntion to find to count even number in linkedlist
+    public static int counteven(Node head){
+        int count=0;
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data%2==0){
+                count++;
+            }
+            temp=temp.next;
+        }
+        return count;
+    }
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        Node head=null;
+        Node tail=null;
+        for(int i=0;i<n;i++){
+            int x=sc.nextInt();
+            Node newnode=new Node(x);
+            if(head==null){
+                head=tail=newnode;
+            }else{
+                tail.next=newnode;
+                tail=newnode;
+            }
+        }
+        int ans=counteven(head);
+        System.out.println("the number of even node is " + ans);
+    }
+}                                  // see to write code from strach in linkedlist follow this stesps
+// see to write code from strach in linkedlist follow this stesps
+1) first make class node and add two things (int data,Node next) than consctructor of that node class and initilize (this.data=data,, this .next=null)
+2) make ass ususal main class and main method inside that first
+first take input value of n and than mark head and tail at null than---?
+take value x input and make that node as newnode and than connect with tail node and than perform fucntion what u want like example above
