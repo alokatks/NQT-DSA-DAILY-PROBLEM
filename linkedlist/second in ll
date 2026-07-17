@@ -1,0 +1,54 @@
+/*Problem Statement
+A company stores product IDs in a singly linked list.
+Write a Java program to find the second largest element in the linked list.
+If the second largest element does not exist, print -1.*/  //5 -->10 50 30 20 40 output is -->40)--2)5 ->10 10 10 10 10->out---1ans
+
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+public class Main{
+    public static int secondlar(Node head){
+        Node temp=head;
+        int max=Integer.MIN_VALUE;
+        int smax=Integer.MIN_VALUE;
+        while(temp!=null){
+            if(temp.data>max){
+                max=temp.data;
+            }
+            temp=temp.next;
+        }
+        Node temp1=head;
+        while(temp1!=null){
+            if(temp1.data>smax && temp1.data!=max){
+                smax=temp1.data;
+            }
+            temp1=temp1.next;
+        }
+        return (smax == Integer.MIN_VALUE) ? -1 : smax;
+    }
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        Node head=null;
+        Node tail=null;
+        for(int i=0;i<n;i++){
+            int x=sc.nextInt();
+            Node newnode=new Node(x);
+            if(head==null){
+                head=tail=newnode;
+            }else{
+                tail.next=newnode;
+                tail=newnode;
+            }
+        }
+        int ans=secondlar(head);
+        System.out.println(ans);
+    }
+}
