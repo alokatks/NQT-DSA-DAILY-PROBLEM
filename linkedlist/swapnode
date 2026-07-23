@@ -1,0 +1,56 @@
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+public class Main{
+    public static Node swap(Node head,int k,int n){
+        Node t1=head;
+        
+        for(int i=1;i<k;i++){
+            t1=t1.next;
+        }
+        Node t2=head;
+        for(int i=1;i<n-k+1;i++){
+            t2=t2.next;
+        }
+        int temp=t1.data;
+        t1.data=t2.data;
+        t2.data=temp;
+        
+        return head;
+        
+    }
+    public static void printList(Node head) {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        }
+        System.out.println();
+    }
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        Node head=null;
+        Node tail=null;
+        for(int i=0;i<n;i++){
+            int x=sc.nextInt();
+            Node newnode=new Node(x);
+            if(head==null){
+                head=tail=newnode;
+            }else{
+                tail.next=newnode;
+                tail=newnode;
+            }
+        }
+        int k=sc.nextInt();
+        Node ans=swap(head,k,n);
+         printList(ans);
+    }
+}
