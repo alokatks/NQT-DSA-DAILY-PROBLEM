@@ -1,0 +1,33 @@
+/******************************************************************************
+852. Peak Index in a Mountain Array-->>
+Example 2:
+
+Input: arr = [0,2,1,0]
+
+Output: 1
+*******************************************************************************/
+import java.util.*;
+public class Main{
+    public static int peek( int arr[]){
+        int low=0;int high=arr.length-1;
+        while(low<high){
+            int mid=low+(high-low)/2;
+            if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1]) return mid;
+            else if(arr[mid]>arr[mid-1] && arr[mid]<arr[mid+1]) low=mid+1;
+            else{
+                high=mid-1;
+            }
+        }
+        return 0;
+    }
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[]arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int ans=peek(arr);
+        System.out.println(ans);
+    }
+}
