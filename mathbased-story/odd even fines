@@ -1,0 +1,35 @@
+//Input:4 -> Value of N{5,2,3,7} -> a[], Elements a[0] to a[N-1], 
+//during input each element is separated by a new line12 -> 
+//Value of D, i.e. date200 -> Value of x i.e. fineOutput:600 -> total fine collected
+
+import java.util.*;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int d=sc.nextInt();
+        int x=sc.nextInt();
+        int count=0;
+        int ans=1;
+        if(d%2==0){
+            for(int i=0;i<n;i++){
+                if(arr[i]%2!=0){
+                    count++;
+                }
+               ans= count*x;
+            }
+        }else{
+            for(int i=0;i<n;i++){
+                if(arr[i]%2==0){
+                    count++;
+                }
+                ans=count*x;
+            }
+        }
+        System.out.println(ans);
+    }
+}
