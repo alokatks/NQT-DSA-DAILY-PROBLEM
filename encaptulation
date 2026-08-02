@@ -1,0 +1,22 @@
+//encaptulation example--
+ class Student{
+     String name;
+     private int age;
+     
+     public void setage(int age){
+         if(age>0){
+             this.age=age;
+         }
+     }
+     
+     public int get(){
+         return age;
+     }
+}
+public class Main{
+    public static void main(String[]args){
+        Student obj=new Student();
+        obj.setage(30);
+        System.out.println(obj.get());
+    }
+}
